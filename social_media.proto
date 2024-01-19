@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package socialmedia;
+option go_package = "github.com/rygrow/SportTwit/socialmedia";
+
+service SocialMediaService {
+  rpc RegisterUser (RegisterRequest) returns (RegisterReply) {}
+  rpc LoginUser (LoginRequest) returns (LoginReply) {}
+  rpc CreatePost (CreatePostRequest) returns (CreatePostReply) {}
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message RegisterReply {
+  string message = 1;
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginReply {
+  string message = 1;
+}
+
+message CreatePostRequest {
+  string userId = 1;
+  string content = 2;
+}
+
+message CreatePostReply {
+  string message = 1;
+}
